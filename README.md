@@ -1,6 +1,9 @@
 # <h1 align="center"> Learn EVM Attacks </h1>
 A collection of Foundry tests reproducing exploits, bug bounty reports, and theoretical vulnerabilities on EVM chains. Diagrams and context links accompany each attack reproduction to make it more helpful as a reference or study material for anyone trying to learn more about vulnerabilities in smart contract systems.
 
+> [!IMPORTANT]  
+> Some tests need access to archive data as they require state from old blocks. If a test is failing, make sure to set up an archive node as the JSON-RPC URL in `foundry.toml`. [Infura](https://docs.infura.io/api/networks/ethereum/concepts/archive-data) provides free access to archive data.
+
 Want to take a quick look? Just go to a vulnerability folder (say, [MBCToken](/test/Access_Control/MBCToken)). Read the README or jump ahead to running the reproduction in your computer! You only need [Foundry](https://github.com/foundry-rs/foundry) installed. 
 
 ``` bash
@@ -41,6 +44,8 @@ The full list is below:
 - [Bad Guys NFT, Sept 2022 - (400 NFTs) - Unchecked Mint Amount](/test/Bad_Data_Validation/Bad_Guys_NFT/)
 - [Multichain a.k.a AnySwap, Jan 2022 - (~$960,000) - Arbitrary Tokens / Unchecked Permit](/test/Bad_Data_Validation/Multichain_Permit/)
 - [Superfluid, Jan 2022 - (~$8.7MM) - Calldata crafting / CTX not verified](/test/Bad_Data_Validation/Superfluid)
+- [1inch, Mar 2025 - (~$5MM / ~$4.5MM returned) - Calldata Crafting / Unchecked Interaction Length](/test/Bad_Data_Validation/1inch/)
+- [LyraDepositWrapper - Sept 2025 - ($1MM) - Missing input validation /  Arbitrary Call](/test/Bad_Data_Validation/LyraDepositWrapper)
 
 ### Business Logic
 - [Sperax USDS, Feb 2023 - (9.7B tokens / ~$309K) - Faulty Migration Process & Balance Accounting](/test/Business_Logic/Usds)
@@ -53,8 +58,17 @@ The full list is below:
 - [Vesper Rari Pool - Nov 2021 - (~$3MM) - Price Feed Manipulation](/test/Business_Logic/VesperRariFuse)
 - [Uranium - Apr 2021 - (~$50MM) - Wrong Constant Product AMM checks](/test/Business_Logic/Uranium)
 - [Furucombo - Feb 2021 - ($15MM) - DELEGATECALL to proxy](/test/Business_Logic/Furucombo)
-- [Seaman - Nov 2022 - ($7K) - Sandwich attack](/test/Business_Logic/Furucombo)
+- [Seaman - Nov 2022 - ($7K) - Sandwich attack](/test/Business_Logic/Seaman/)
 - [Tornado Cash Governance - May 2023 - (~$2.7MM) - Malicious Proposal](/test/Business_Logic/TornadoCash_Governance)
+- [Onyx Protocol - Nov 2023 - (~$2.1MM) - Empty Market Manipulation / Rounding Error](/test/Business_Logic/OnyxProtocol)
+- [Polter Finance - Nov 2024 - (~$8.7MM) - Oracle Manipulation](/test/Business_Logic/Polter_Finance/)
+- [SIR Trading - Mar 2025 - (~$355k) - Bad Usage of Transient Storage](/test/Business_Logic/SIRTrading/)
+- [MobiusDAO - Mar 2025 - (~$2.15MM) - Bad Arithmetic](/test/Business_Logic/MobiusDAO/)
+- [Cork Finance - May 2025 - (~$7.2MM) - Price Manipulation + Poor Access Control](/test/Business_Logic/Cork_Finance/)
+- [Bunni V2 - Sept 2025 - (~$8.4MM) - Rounding Error + Price Manipulation](/test/Business_Logic/Bunni/)
+- [Futureswap - Jan 2026 - (~$395k) - Unit mismatch in fee calculation](/test/Business_Logic/Futureswap/)
+
+
 
 ### Reentrancy
 - [Qi Dao / Curve Pool - Nov 2022 - (~$156K) - Read Only Reentrancy](/test/Reentrancy/CurvePoolOracle)
